@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website With Login & Registration | Codehal</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <main class="main-login">
+    <header>
+      <h4>ورود کاربر</h4>
+    </header class = "header_login">
+    <form action="#">
+      <div class="form_wrapper">
+        <input type="phone" id="username" required>
+        <label for="input">نام کاربری</label>
+        <i class="material-icons">person</i>
+      </div>
+
+      <div class="form_wrapper">
+        <input type="password" id="password" required>
+        <label for="input">رمز عبور</label>
+        <i class="material-icons">lock</i>
+      </div>
+
+      <button type="submit" id="loginButton">
+        <span class="btn-text">ورود</span>
+        <span class="btn-loader"></span> <!-- Spinner inside button -->
+      </button>
+
+      <p id="errorText" class="error-text"></p> <!-- Error Text -->
+    </form>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

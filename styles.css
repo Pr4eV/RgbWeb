@@ -1,0 +1,330 @@
+/* body {
+    font-family: sans-serif;
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5;
+  }
+  
+  .main-page .container {
+    max-width: 400px;
+    margin: 100px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  .main-page input[type="color"] {
+    margin-top: 15px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    cursor: pointer;
+  } */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  --main-color: #162938;
+  --text-color: #333333;
+  --background-color: #f0f0f0;
+}
+
+
+
+/* LOGIN SCREEN */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: url("/img/background.jpg") no-repeat center center/cover;
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+.main-login {
+  width: 400px;
+  height: 400px;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  background-color: transparent;
+  backdrop-filter: blur(25px);
+  position: relative;
+
+}
+
+/* header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: var(--main-color);
+  border-radius: 0 0 10px 10px;
+} */
+
+header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 20px; /* کمی کمترش کن */
+  min-height: 48px; /* حداقل ارتفاع تضمین کن */
+  background-color: var(--main-color);
+  border-radius: 0 0 10px 10px;
+  display: flex; /* برای کنترل بهتر محتوا */
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box; /* padding رو حساب کن */
+}
+
+header h4 {
+  color: white;
+  font-size: 17px;
+  font-family: 'Vazir', Tahoma, Arial, sans-serif;
+}
+
+header::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -30px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  box-shadow: 15px 0 0 0 var(--main-color);
+  border-top-right-radius: 50%;
+}
+
+header::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: -30px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  box-shadow: -15px 0 0 0 var(--main-color);
+  border-top-left-radius: 50%;
+}
+
+form {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+input[type="phone"],
+input[type="password"] {
+  padding: 16px;
+  border: 2px solid var(--main-color);
+  width: 100%;
+  border-radius: 10px;
+  outline: none;
+  background-color: transparent;
+  color: var(--main-color);
+  text-align: center;
+}
+
+
+input:valid+label,
+input:focus+label {
+  background-color: var(--main-color);
+  color: white;
+  transform: translate(-50%, -35px);
+  padding: 1px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.form_wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  justify-content: space-between;
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 12px;
+  color: var(--main-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* متن وسط */
+
+  transition: 0.2s;
+}
+
+i {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  color: var(--main-color);
+  transition: 0.2s;
+}
+
+button {
+  position: fixed;
+  width: 90%;
+  height: 45px;
+  background: var(--main-color);
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  color: #fff;
+  font-weight: 500;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+/* Spinner inside button */
+.btn-loader {
+  border: 3px solid #fff;
+  border-top: 3px solid #a5d6a7;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+  display: none;
+  /* Hidden by default */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error Text */
+.error-text {
+  color: var(--error-color);
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  /* زیر دکمه */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  color: red;
+  font-size: 14Px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Main SCREEN */
+
+.main-dashboard {
+  width: 460px;
+  height: 96vh;
+  margin: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  background-color: transparent;
+  backdrop-filter: blur(25px);
+  position: relative;
+}
+
+.top-dashboard{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  
+  width: 100%;
+  height: 100px;
+}
+
+.menu-btn{
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  width: 48px;
+  height: 48px;
+  font-size: 25px;
+  color: white;
+  background-color: transparent;
+}
+
+.top-dashboard i{
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  width: 48px;
+  height: 48px;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  align-content: center;
+  text-align: center;
+}
+
+#colorWheel {
+  width: 250px;
+  margin: 0 auto; /* افقی وسط */
+}
+
+
+
