@@ -1,19 +1,51 @@
 
+// const currentPage = window.location.pathname;
+// const isLoginPage = currentPage.includes("login.html");
+// const user = localStorage.getItem('user');
+// if (user != null) {
+//   console.log("USer saved: " + user);
+//   const storedUser = JSON.parse(user);
+
+//   if (user.token != "") {
+//     console.log("Main Screen");
+//     if (isLoginPage) {
+//       window.location.href = '/index.html';
+//     }
+//   } else {
+//     // لاگین نکرده → بفرست به صفحه لاگین
+//     //window.location.href = '/login.html';
+//   }
+// }
 const currentPage = window.location.pathname;
 const isLoginPage = currentPage.includes("login.html");
+const isIndexPage = currentPage.includes("index.html");
+
 const user = localStorage.getItem('user');
+
 if (user != null) {
-  console.log("USer saved: " + user);
   const storedUser = JSON.parse(user);
 
-  if (user.token != "") {
-    console.log("Main Screen");
+  if (storedUser.token && storedUser.token !== "") {
+    console.log("User is logged in");
+
     if (isLoginPage) {
       window.location.href = '/index.html';
     }
+
   } else {
-    // لاگین نکرده → بفرست به صفحه لاگین
-    //window.location.href = '/login.html';
+    console.log("User token is empty");
+
+    if (!isLoginPage) {
+      window.location.href = '/login.html';
+    }
+  }
+
+} else {
+  console.log("User not found in localStorage");
+
+  // اگه اصلا user تو localStorage نبود → بفرست login
+  if (!isLoginPage) {
+    window.location.href = '/login.html';
   }
 }
 
