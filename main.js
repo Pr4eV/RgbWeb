@@ -29,14 +29,15 @@ if (user != null) {
     console.log("User is logged in");
 
     if (isLoginPage) {
-      window.location.href = 'index.html';
+      window.location.href = '/index.html';
     }
 
   } else {
     console.log("User token is empty");
 
+
     if (!isLoginPage) {
-      window.location.href = 'login.html';
+      window.location.href = '/login.html';
     }
   }
 
@@ -45,7 +46,7 @@ if (user != null) {
 
   // اگه اصلا user تو localStorage نبود → بفرست login
   if (!isLoginPage) {
-    window.location.href = 'login.html';
+    window.location.href = '/login.html';
   }
 }
 
